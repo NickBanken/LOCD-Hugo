@@ -1,0 +1,5 @@
+{{ with .Get "imageid" }}
+	<div class="instructions__image">
+		<img src="/img/{{ . }}" alt="image">
+	</div>
+{{ end }}
