@@ -34,6 +34,8 @@
     
 </head>
 <body>
+
+    
 	
 <header>
     <nav class="nav">
@@ -62,55 +64,47 @@
     <div id="viewport" class="viewport">
         <div class="instructions">
             <nav class="instructions__nav">
-                <a href="#"><i class="fas fa-arrow-left"></i></a>
+                <a href="{{with .Site.Pages.Prev . }}{{.RelPermalink}}{{end}}"><i class="fas fa-arrow-left"></i></a>
                 <div class="instructions__dropdown">
                     <i class="fas fa-bars"></i> Introduction / Basics
                     <select>
 						{{range .Sections}}
 							<optgroup label = "{{.Section}}"></optgroup>
 							
-							{{range $index, $element := .Pages}}
-							<option label="{{$index}} - {{.Title}}"></option>
-							{{end}}
+                            {{range $index, $element := .Pages}}
+                                {{ $index :=add $index 1 }}
+                                <option label="{{$index}} - {{.Title}}"></option>
+                            {{end}}
+                            
 						{{end}}
-                        <!-- <optgroup label="1. HTML">
-                            <option label="Basics"></option>
-                            <option label="Semantics"></option>
-                            <option label="SEO"></option>
-                        </optgroup>
-                        <optgroup label="2. CSS">
-                            <option label="Basics"></option>
-                            <option label="Selectors"></option>
-                            <option label="Properties"></option>
-                            <option label="Display"></option>
-                            <option label="Flex"></option>
-                            <option label="Grid"></option>
-                        </optgroup>
-                        <optgroup label="3. JavaScript">
-                            <option label="Basics"></option>
-                            <option label="Operators"></option>
-                            <option label="Variables"></option>
-                            <option label="Arrays"></option>
-                            <option label="If"></option>
-                            <option label="Loops"></option>
-                            <option label="Functions"></option>
-                            <option label="Objects"></option>
-                        </optgroup> -->
                     </select>
                 </div>
-                <a href="#"><i class="fas fa-arrow-right"></i></a>
+                <a href="{{with .Site.Pages.Prev . }}{{.RelPermalink}}{{end}}"><i class="fas fa-arrow-right"></i></a>
             </nav>
 
             <div id="insertData" class="instructions__info">
 
                 <div id="max"class="resize max"><i class="fas fa-arrows-alt"></i></div>
                 <div id="min"class="resize min"><i class="fas fa-compress-arrows-alt"></i></div>
+          
 
+                {{range .Sections}}
+                    {{$Sections := slice .Title}}
+                    {{$Sections}}
+                {{end}}
 
-				<!--START INSERT DATA-->
-				{{ range $index, $element := .Pages }}
-				<p>{{$index}} {{.Title}}</p>
-				{{end}}
+                    
+               {{index .Sections 1}}
+
+               {{with .Site.Pages.Next . }}
+               {{.RelPermalink}}
+                {{ if eq .RelPermalink "/html/"}} true
+                {{else}}
+                false
+                {{end}}
+               {{end}}
+
+                <!--START INSERT DATA-->
 				{{.Content}}
 				<!--END iNSERT DATA-->
 
