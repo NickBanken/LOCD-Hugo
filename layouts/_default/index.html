@@ -79,34 +79,40 @@
 						{{end}}
                     </select>
                 </div>
-                <a href="{{with .Site.Pages.Prev . }}{{.RelPermalink}}{{end}}"><i class="fas fa-arrow-right"></i></a>
+                <a href="{{with .Site.RegularPages.Next . }}{{.RelPermalink}}{{end}}"><i class="fas fa-arrow-right"></i></a>
             </nav>
 
             <div id="insertData" class="instructions__info">
 
                 <div id="max"class="resize max"><i class="fas fa-arrows-alt"></i></div>
                 <div id="min"class="resize min"><i class="fas fa-compress-arrows-alt"></i></div>
-          
 
-                {{range .Sections}}
-                    {{$Sections := slice .Title}}
-                    {{$Sections}}
+                
+                {{ range .Site.RegularPages}}
+                 {{.Title}}
                 {{end}}
 
-                    
-               {{index .Sections 1}}
 
-               {{with .Site.Pages.Next . }}
+               <!-- {{with .Site.Pages.Next . }}
                {{.RelPermalink}}
-                {{ if eq .RelPermalink "/html/"}} true
+                {{ if eq .RelPermalink "/html/"}} 
+                
+                    true
                 {{else}}
                 false
                 {{end}}
-               {{end}}
+               {{end}} -->
+
+               <!-- {{ range .Site.Pages.ByWeight }}
+                {{.Permalink}}
+                {{end}} -->
+                               
 
                 <!--START INSERT DATA-->
 				{{.Content}}
-				<!--END iNSERT DATA-->
+                <!--END iNSERT DATA-->
+                
+                
 
 				
 				
