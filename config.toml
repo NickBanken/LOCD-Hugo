@@ -1,3 +1,6 @@
 baseURL = "http://example.org/"
 languageCode = "en-us"
 title = "LOCD Learning on your own!"
+
+
+disableKinds = ['taxonomy', 'taxonomyTerm']

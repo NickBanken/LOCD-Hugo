@@ -5,8 +5,6 @@ draft: true
 ---
 
 
-# Welcome to the new era!
-
 ## Introduction
 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores, ipsam ducimus. Iusto ad sequi accusantium neque eaque quia velit corporis est, culpa dignissimos? Voluptatum possimus delectus consectetur at officiis quam!
 
