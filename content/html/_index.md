@@ -1,15 +1,7 @@
 ---
-title: "Introduction"
-date: 2020-08-20T12:16:17+02:00
+date: "2020-08-20T12:16:17+02:00"
 draft: true
-weight: 1
-# content:
-#   - name : home
-#     order: 0
-#   - name: HTML
-#     order: 1
-#   - name: CSS
-#     order: 2
+title: HTML5
 ---
 
 

@@ -29,7 +29,25 @@
 	<script src="{{.Site.BaseURL}}/codemirror/addon/hint/html-hint.js"></script>
 	
 
-    <link rel="stylesheet" type="text/css" href="{{.Site.BaseURL}}/css/main.css">
+	<link rel="stylesheet" type="text/css" href="{{.Site.BaseURL}}/css/main.css">
+	
+	<style>
+
+		select{
+			padding: 8px 16px;
+			color: blue;
+		}
+
+		.select__head{
+			font-weight: bold;
+			font-size:14px;
+			color:black;
+		}
+
+		.select__second{
+			text-indent: 5px;
+		}
+	</style>
     
     
 </head>
@@ -68,10 +86,11 @@
                 <div class="instructions__dropdown">
 					<i class="fas fa-bars"></i> {{.Title}}
 					
-                    <select class = "lesson__options">
-						<option class="select__head" label = "{{ .Site.Title }}"></option>
+                    <select class = "lesson__options" id = "ddlViewBy">
+						<option class="select__head" label = '{{ with .Site.GetPage "/" }}{{ .Title }}{{ end }}'></option>
+						{{ partial "dropdown" (dict "path" .Site.Data.exercises.html "type" "html")}}
 
-						{{range .Sections}}
+						<!-- {{range .Sections}}
 							<option class="select__head" label = "{{.Section}}"></option>
 							
                             {{range $index, $element := .Pages}}
@@ -79,7 +98,7 @@
                                 <option class="select__second" label="{{$index}} - {{.Title}}"></option>
                             {{end}}
                             
-						{{end}}
+						{{end}} -->
                         
 
                     </select>
@@ -94,13 +113,28 @@
                 <div id="max"class="resize max"><i class="fas fa-arrows-alt"></i></div>
                 <div id="min"class="resize min"><i class="fas fa-compress-arrows-alt"></i></div>
                 
-                {{range .Sections}}
-                    {{.Section}}
-                {{end}}
+				
+				<!-- {{range .Site.Pages}}
+					{{.Title}}
+				{{end}} -->
 
+				<br>
 
+				<!-- {{ range sort (.Params.firstLevel) "order" }}
+					{{ $page := $.Site.GetPage .name }}
+					{{ $page.Title }}
+				{{ end }} -->
 
-                <!--START INSERT DATA-->
+				<!-- <div>Short Description of {{.Site.Data.User0123.Name}}: </div> -->
+
+				{{ partial "header" (dict "path" .Site.Data.exercises.html "type" "html")}}
+				<hr>
+			
+				{{ partial "header" (dict "path" .Site.Data.exercises.css "type" "html")}}
+
+				
+
+				<!--START INSERT DATA-->
 				{{.Content}}
                 <!--END iNSERT DATA-->
                 
@@ -122,31 +156,11 @@
     </div>
 </main>
 
-<script>
-    const select = document.querySelector(".lesson__options");
-    const options = document.querySelectorAll(".less__options option");
     
-    // 1
-    select.addEventListener("change", function() {
-    const url = this.options[this.selectedIndex].value;
-        if(url) {
-            location.href = url;
-        }
-    });
-    
-    // 2
-    for(const option of options) {
-    const url = option.dataset.url;
-    if(location.href.includes(url)) {
-        option.setAttribute("selected", "");
-        break;
-    }
-    }
-</script>
-    
-<script src="{{.Site.BaseURL}}/js/codeMirror.js"></script>
-<script src="{{.Site.BaseURL}}/js/editor.js"></script>
-<script src="{{.Site.BaseURL}}/js/script.js"></script>
+<!-- <script src="{{.Site.BaseURL}}/js/codeMirror.js"></script> -->
+<!-- <script src="{{.Site.BaseURL}}/js/editor.js"></script> -->
+<!-- <script src="{{.Site.BaseURL}}/js/script.js"></script> -->
 <script src="{{.Site.BaseURL}}/js/sticky.js"></script>
+<script src="{{.Site.BaseURL}}/js/navigation.js"></script>
 </body>
 </html>

@@ -1,8 +1,13 @@
 ---
-title: "Introduction"
-date: 2020-08-20T12:16:17+02:00
+date: "2020-08-20T12:16:17+02:00"
 draft: true
-weigth: 1
+title: Home
+
+firstLevel:
+  - name: html
+    order: 1
+  - name: css
+    order: 2
 ---
 
 

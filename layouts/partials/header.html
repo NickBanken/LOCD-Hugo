@@ -1,0 +1,27 @@
+
+{{/*  get type of exercise, example: HTML,CSS,...  */}}
+{{$type := .type}}
+<h2>{{$type}}</h2>
+
+{{/*  Loop through the chapters given in the YAML file  */}}
+{{ range $key, $chapter:=.path.chapters}}
+	{{$key}}
+	
+	{{/*  If there are no subFolders, grab single files  */}}
+	{{if eq $chapter.subFolders false}}
+		{{ range $exercise:=$chapter.exercises }}
+		{{$adress := print "content/" $type "/" $chapter.folder "/" $exercise ".md"}}
+		
+			{{if (fileExists $adress)}}
+				<li><a href="{{$type}}/{{$chapter.folder}}/{{$exercise}}">{{$exercise}}</a></li>
+			{{end}}
+				
+		{{ end }}
+	{{/*  When there are subfolders */}}
+	{{else}}
+		{{range $subChapter:= $chapter.subChapters}}
+			{{$subChapter}}
+		{{end}}
+
+	{{end}}
+{{ end }}

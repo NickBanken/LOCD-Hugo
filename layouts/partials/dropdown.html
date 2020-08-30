@@ -1,0 +1,27 @@
+{{$type := .type}}
+<optgroup class="select__head" label ={{$type}}></optgroup>
+{{ range $key, $value:=.path.chapters}}
+	<optgroup label="{{$key}}"></optgroup>
+	{{ range $exercise:=$value.exercises }}
+	{{$adress := print "content/" $type "/" $value.folder "/" $exercise ".md"}}
+	
+		{{if (fileExists $adress)}}
+			<li><a href="">{{$exercise}}</a></li>
+			<option value="{{$type}}/{{$value.folder}}/{{$exercise}}">{{$exercise}}</option>
+		{{end}}
+		
+		
+	{{ end }}
+{{end}}
+
+
+
+<!-- <optgroup label = {{.path.name}}></optgroup>
+{{ range $key, $value:=.path.chapters.exercises}}
+	<optgroup label = {{$key}}></optgroup>
+	{{ range $exercise:=$value }}
+	
+		
+		<option label = {{$exercise}} >
+	{{ end }}
+{{ end }} -->

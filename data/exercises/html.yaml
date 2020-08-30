@@ -1,0 +1,48 @@
+---
+chapters:
+
+# -------Intro-------
+  1 - intro: 
+    folder : intro
+    subFolders: false
+
+    exercises:
+      - HTML
+      - intro
+      - why-html
+
+    subChapters:
+      folder:
+      exercises:
+
+# -------Semantics-------
+  2 - semantics: 
+    folder: semantics
+    subFolders: false
+
+    exercises:
+      - basic-semantics
+      - chinese-letter
+
+    subChapters:
+      folder:
+      exercises:
+
+# -------TestFolder-------
+  3 - testFolder: 
+    folder: test
+    subFolders: true
+
+    exercises:
+      - basic-semantics
+      - chinese-letter
+
+    subChapters:
+      1 - positioning:
+        folder: positioning
+        exercises:
+        - how
+        - to
+
+
+  

@@ -175,8 +175,19 @@ header {
   .instructions p {
     margin-bottom: 2rem; }
 
+.resize {
+  position: absolute;
+  right: 20px;
+  display: inline-block;
+  transform: rotate(45deg);
+  padding: 1rem;
+  cursor: pointer; }
+
 .min {
   display: none; }
+
+.min, .max {
+  top: 30px; }
 
 .editor {
   width: 100%;

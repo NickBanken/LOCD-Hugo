@@ -1,0 +1,41 @@
+--- 
+topics:
+  - name: Algeria
+    chapters:
+      intro: 
+        - HTML
+        - intro
+        - why-html
+  - name: Angola
+  - name: Cameroon
+  - name: Comoros
+  - name: Gambia
+  - name: Ghana
+  - name: Ivory Coast
+  - name: Kenya
+  - name: Lesotho
+  - name: Madagascar
+  - name: Malawi
+  - name: Mauritius
+  - name: Morocco
+  - name: Nigeria
+  - name: Namibia
+  - name: Senegal
+  - name: Sierra Leone
+  - name: South Africa
+  - name: Swaziland
+  - name: Tanzania
+  - name: Tunisia
+  - name: Uganda
+  - name: Zambia
+  - name: Zimbabwe
+
+
+# - html: 
+#     intro: 
+#       - HTML
+#       - intro
+#       - why-html
+#     semantics: 
+#       - basic-semantics
+#       - chinese-letter
