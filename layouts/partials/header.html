@@ -5,7 +5,7 @@
 
 {{/*  Loop through the chapters given in the YAML file  */}}
 {{ range $key, $chapter:=.path.chapters}}
-	{{$key}}
+	{{$key}} </br>
 	
 	{{/*  If there are no subFolders, grab single files  */}}
 	{{if eq $chapter.subFolders false}}
@@ -19,8 +19,15 @@
 		{{ end }}
 	{{/*  When there are subfolders */}}
 	{{else}}
-		{{range $subChapter:= $chapter.subChapters}}
-			{{$subChapter}}
+		{{range $key, $subChapter:= $chapter.subChapters}}
+			{{$key}}
+			{{ range $exercise:=$subChapter.exercises }}
+			{{$adress := print "content/" $type "/" $chapter.folder "/" $subChapter.folder "/" $exercise ".md"}}
+			{{if (fileExists $adress)}}
+				<li><a href="{{$type}}/{{$chapter.folder}}/{{$subChapter.folder}}/{{$exercise}}">{{$exercise}}</a></li>
+			{{end}}
+				
+		{{ end }}
 		{{end}}
 
 	{{end}}

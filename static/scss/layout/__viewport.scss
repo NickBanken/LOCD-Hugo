@@ -20,7 +20,7 @@
         height: 8rem;
         border-bottom: 1px solid $color-grey-dark;
 
-        a{
+        > a{
             width: 30%;
             height: 100%;
             display: flex;
@@ -31,7 +31,7 @@
         &--bottom{
             margin-top: 3rem;
             
-           
+        
             a:first-child{
                 justify-content: flex-start;
                 i{
@@ -49,7 +49,7 @@
             border-bottom: 0;
             border-top: 1px solid $color-grey-dark;
         }
-       
+    
     }
 
     &__dropdown{

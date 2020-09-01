@@ -1,27 +1,32 @@
-{{$type := .type}}
-<optgroup class="select__head" label ={{$type}}></optgroup>
-{{ range $key, $value:=.path.chapters}}
-	<optgroup label="{{$key}}"></optgroup>
-	{{ range $exercise:=$value.exercises }}
-	{{$adress := print "content/" $type "/" $value.folder "/" $exercise ".md"}}
-	
-		{{if (fileExists $adress)}}
-			<li><a href="">{{$exercise}}</a></li>
-			<option value="{{$type}}/{{$value.folder}}/{{$exercise}}">{{$exercise}}</option>
-		{{end}}
-		
-		
-	{{ end }}
-{{end}}
 
 
 
-<!-- <optgroup label = {{.path.name}}></optgroup>
-{{ range $key, $value:=.path.chapters.exercises}}
-	<optgroup label = {{$key}}></optgroup>
-	{{ range $exercise:=$value }}
-	
+			<li class="drop__topic">{{.type}}</li>
+			{{$type:=.type}}
+			{{/*  Loop through the chapters given in the YAML file  */}}
+			{{ range $key, $chapter:=.path.chapters}}
+				<li ><div class="drop__chapter">{{$key}}</div></li>
+				{{/*  If there are no subFolders, grab single files  */}}
+				{{if eq $chapter.subFolders false}}
+					{{ range $exercise:=$chapter.exercises }}
+						{{$adress := print "content/" $type "/" $chapter.folder "/" $exercise ".md"}}
+							{{if (fileExists $adress)}}
+								<li><a class="drop__exercise" href="{{$type}}/{{$chapter.folder}}/{{$exercise}}">{{$exercise}}</a></li>
+							{{end}}
+						{{ end }}
+					{{/*  When there are subfolders */}}
+				{{else}}
+					{{range $key, $subChapter:= $chapter.subChapters}}
+						<li><div class="drop__sub">{{$key}}</div></li>
+						{{ range $exercise:=$subChapter.exercises }}
+							{{$adress := print "content/" $type "/" $chapter.folder "/" $subChapter.folder "/" $exercise ".md"}}
+							{{if (fileExists $adress)}}
+								<li><a class="drop__exercise--sub" href="{{$type}}/{{$chapter.folder}}/{{$subChapter.folder}}/{{$exercise}}">{{$exercise}}</a></li>
+							{{end}}
+						{{ end }}
+					{{end}}
+				{{end}}
+			{{end}}
 		
-		<option label = {{$exercise}} >
-	{{ end }}
-{{ end }} -->
+
+

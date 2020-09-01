@@ -30,26 +30,7 @@
 	
 
 	<link rel="stylesheet" type="text/css" href="{{.Site.BaseURL}}/css/main.css">
-	
-	<style>
-
-		select{
-			padding: 8px 16px;
-			color: blue;
-		}
-
-		.select__head{
-			font-weight: bold;
-			font-size:14px;
-			color:black;
-		}
-
-		.select__second{
-			text-indent: 5px;
-		}
-	</style>
-    
-    
+        
 </head>
 <body>
 
@@ -83,12 +64,24 @@
         <div class="instructions">
             <nav class="instructions__nav">
                 <a href="{{with .Site.Pages.Prev . }}{{.RelPermalink}}{{end}}"><i class="fas fa-arrow-left"></i></a>
-                <div class="instructions__dropdown">
-					<i class="fas fa-bars"></i> {{.Title}}
+                <div class="dropdown">
+                    <button class="dropdown__btn"><i class="fas fa-bars"></i> {{.Title}}</button>
+                    <div id="dropdownList" class="dropdown__list">
+                        <ul>
+                            <li class="drop__chapter current"><a  href="{{.Site.Home.Permalink}}">{{.Site.Home.Title}}</a></li>
+                            {{ partial "dropdown" (dict "path" .Site.Data.exercises.html "type" "html" "title" .Title)}}
+                        </ul>
+                    </div>
+                </div>
+      
+                <!-- <div class="instructions__dropdown">
+                    <i class="fas fa-bars"></i> {{.Title}} -->
+                    
+                    
 					
-                    <select class = "lesson__options" id = "ddlViewBy">
+                    <!-- <select class = "lesson__options" id = "ddlViewBy">
 						<option class="select__head" label = '{{ with .Site.GetPage "/" }}{{ .Title }}{{ end }}'></option>
-						{{ partial "dropdown" (dict "path" .Site.Data.exercises.html "type" "html")}}
+						 -->
 
 						<!-- {{range .Sections}}
 							<option class="select__head" label = "{{.Section}}"></option>
@@ -100,9 +93,9 @@
                             
 						{{end}} -->
                         
-
-                    </select>
-                </div>
+<!-- 
+                    </select> -->
+                <!-- </div> -->
 
                 <a href="{{with .Site.Pages.Next . }}{{.RelPermalink}}{{end}}"><i class="fas fa-arrow-right"></i></a>
 
@@ -127,22 +120,9 @@
 
 				<!-- <div>Short Description of {{.Site.Data.User0123.Name}}: </div> -->
 
-				{{ partial "header" (dict "path" .Site.Data.exercises.html "type" "html")}}
-				<hr>
-			
-				{{ partial "header" (dict "path" .Site.Data.exercises.css "type" "html")}}
-
-				
-
 				<!--START INSERT DATA-->
 				{{.Content}}
                 <!--END iNSERT DATA-->
-                
-                
-
-				
-				
-				
                 <nav class="instructions__nav instructions__nav--bottom">
                     <a href="#"><i class="fas fa-arrow-left"></i>Previous</a>
                     
