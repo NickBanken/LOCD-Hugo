@@ -84,7 +84,6 @@ header{
         }
 
         li{
-            padding: 7px 16px;
             a{
                 display: block;
             }
@@ -94,12 +93,15 @@ header{
 }
 
 
+
 .drop{
 
     &__topic{
         font-weight: 600;
         font-size: 18px;
-        position: relative;
+		position: relative;
+		padding: 7px 16px;
+
 
         &::after{
             content: "";
@@ -116,26 +118,34 @@ header{
 
     &__chapter{
         font-weight: bold;
-        font-size: 15px;
+		font-size: 15px;
+		padding: 7px 16px;
+		box-shadow: 0px 10px 10px rgba(0,0,0,.02);
     }
 
     &__sub{
-        padding:5px 20px !important ;
+		padding: 5px 40px;
         font-weight: bold;
         font-size: 15px;
-        color:rgb(70, 70, 70);
+		color:rgb(70, 70, 70);
+		box-shadow: -100px 10px 10px rgba(0,0,0,.02);
+
     }
 
 
     &__exercise{
         color: black;
         width: 100%;
-        padding: 5px 20px;
+		padding: 11px 35px;
+		
+		&:hover:not(.current), &--sub:hover:not(.current){
+			background-color: $color-grey-light-3;
+		}
 
         &--sub{
             color: black;
             width: 100%;
-            padding: 5px 40px;
+            padding: 5px 60px;
         }
     }
 }
@@ -151,8 +161,13 @@ li{
 
 .current{
     background: $color-grey-dark;
-    a{
-        color:white;
-    }
+    color:white;
+}
+
+
+.disabled {
+	pointer-events: none;
+	cursor: default;
+	color:grey;
 }
 

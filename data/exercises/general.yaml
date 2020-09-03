@@ -1,0 +1,21 @@
+---
+chapters:
+
+# -------Intro-------
+  intro: 
+    order: 1
+    folder : intro
+    subFolders: false
+
+    exercises:
+      - General intro to the course
+      - How-does-internet-work
+      - How does the web work
+      - test
+
+    subChapters:
+      folder:
+      exercises:
+
+
+  

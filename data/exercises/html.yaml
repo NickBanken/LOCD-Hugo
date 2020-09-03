@@ -2,13 +2,15 @@
 chapters:
 
 # -------Intro-------
-  1 - intro: 
+  intro: 
+    order: 1
     folder : intro
     subFolders: false
 
     exercises:
       - HTML
       - intro
+      - TEST123
       - why-html
 
     subChapters:
@@ -16,20 +18,24 @@ chapters:
       exercises:
 
 # -------Semantics-------
-  2 - semantics: 
+  semantics: 
+    order: 2
     folder: semantics
     subFolders: false
 
     exercises:
       - basic-semantics
       - chinese-letter
+      - exercise-quotes
 
     subChapters:
       folder:
       exercises:
+        
 
 # -------TestFolder-------
-  3 - testFolder: 
+  testfolder : 
+    order: 3
     folder: test
     subFolders: true
 
@@ -43,6 +49,5 @@ chapters:
         exercises:
         - how
         - to
-
 
   

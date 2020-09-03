@@ -1,40 +1,3 @@
-// const select = document.querySelector(".lesson__options");
-// const options = document.querySelectorAll(".lesson__options option");
-    
-//     // 1
-//     select.addEventListener("change", function() {
-// 	const url = this.options[this.selectedIndex].value;
-// 	console.log(url)
-//         if(url) {
-// 			console.log(url)
-//             location.href = "/"+url;
-//         }
-// 	});
-	
-// 	console.log(options)
-    
-//     // 2
-//     for(const option of options) {
-// 	const url = option.dataset.url;
-// 	console.log(url)
-//     if(location.href.includes(url)) {
-//         option.setAttribute("selected", "");
-//         break;
-//     }
-// 	}
-
-// 	//let current = window.location.href;
-// 	//var newURL = current.replace (/^[a-z]{4,5}\:\/{2}[a-z]{1,}\:[0-9]{1,4}.(.*)/, '$1');
-// 	//alert(newURL+"e")
-
-	
-// 	select.forEach{
-		
-// 	}
-
-/* When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
-
 
 
 let btn = document.querySelector('.dropdown__btn');
@@ -60,9 +23,34 @@ function myFunction() {
 	}
   }
 
+//################## Arrow navigation ###################
 
   let links = document.querySelectorAll(".dropdown__list ul > li a");
-  console.log(links);
-	links.forEach(element => {
-		console.log(element.href)
-	});
+
+	for(let i=0; i<links.length; i++){
+		if(links[i] == window.location.href){
+			setNavArrow(links,i-1,".prev")
+			setNavArrow(links,i+1,".next")
+			links[i].classList.add("current")
+			break;
+		}
+	}
+
+
+	function setNavArrow(arr,index,query){
+		let arrowArr = document.querySelectorAll(query);
+		console.log(arr[index])
+		if(!arr[index]){
+			console.log(arr[index])
+			arrowArr.forEach(el=>{
+				el.classList.add("disabled");
+				console.log('add')
+			})
+		}else{
+			console.log('come')
+			arrowArr.forEach(el=>{
+				el.href = arr[index];
+				console.log('set href')
+			})
+		}
+	}

@@ -38,7 +38,7 @@
 	
 <header>
     <nav class="nav">
-        <a href="#" class="nav__logo"></a>
+        <a href="/" class="nav__logo"></a>
 
         <ul class="nav__menu">
             <li>
@@ -63,12 +63,14 @@
     <div id="viewport" class="viewport">
         <div class="instructions">
             <nav class="instructions__nav">
-                <a href="{{with .Site.Pages.Prev . }}{{.RelPermalink}}{{end}}"><i class="fas fa-arrow-left"></i></a>
+                <a class="prev" href=""><i class="fas fa-arrow-left"></i></a>
                 <div class="dropdown">
                     <button class="dropdown__btn"><i class="fas fa-bars"></i> {{.Title}}</button>
                     <div id="dropdownList" class="dropdown__list">
                         <ul>
-                            <li class="drop__chapter current"><a  href="{{.Site.Home.Permalink}}">{{.Site.Home.Title}}</a></li>
+							<li class="drop__chapter">0 - Start </li>
+                            <li><a class="drop__exercise"  href="{{.Site.Home.Permalink}}">{{.Site.Home.Title}}</a></li>
+							{{ partial "dropdown" (dict "path" .Site.Data.exercises.general "type" "general" "title" .Title)}}
                             {{ partial "dropdown" (dict "path" .Site.Data.exercises.html "type" "html" "title" .Title)}}
                         </ul>
                     </div>
@@ -97,7 +99,7 @@
                     </select> -->
                 <!-- </div> -->
 
-                <a href="{{with .Site.Pages.Next . }}{{.RelPermalink}}{{end}}"><i class="fas fa-arrow-right"></i></a>
+                <a class="next" href=""><i class="fas fa-arrow-right"></i></a>
 
             </nav>
 
@@ -106,27 +108,14 @@
                 <div id="max"class="resize max"><i class="fas fa-arrows-alt"></i></div>
                 <div id="min"class="resize min"><i class="fas fa-compress-arrows-alt"></i></div>
                 
-				
-				<!-- {{range .Site.Pages}}
-					{{.Title}}
-				{{end}} -->
-
 				<br>
 
-				<!-- {{ range sort (.Params.firstLevel) "order" }}
-					{{ $page := $.Site.GetPage .name }}
-					{{ $page.Title }}
-				{{ end }} -->
-
-				<!-- <div>Short Description of {{.Site.Data.User0123.Name}}: </div> -->
-
-				<!--START INSERT DATA-->
 				{{.Content}}
-                <!--END iNSERT DATA-->
+
                 <nav class="instructions__nav instructions__nav--bottom">
-                    <a href="#"><i class="fas fa-arrow-left"></i>Previous</a>
+                    <a class="prev" href=""><i class="fas fa-arrow-left"></i>Previous</a>
                     
-                    <a href="#">Next <i class="fas fa-arrow-right"></i></a>
+                    <a class="next" href="">Next <i class="fas fa-arrow-right"></i></a>
                 </nav>
 
             </div>

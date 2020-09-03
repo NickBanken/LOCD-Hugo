@@ -30,5 +30,5 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem dolorum voluptatu
 
 <!-- ![This is an image](/img/breathin.gif) -->
 
-{{< addImage imageid="breathin.gif" >}}
+{{< addImage imageid="breathin.gif" alt="lel" >}}
 

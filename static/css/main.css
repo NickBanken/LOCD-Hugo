@@ -127,15 +127,14 @@ header {
       color: black;
       text-decoration: none;
       display: block; }
-    .dropdown__list li {
-      padding: 7px 16px; }
-      .dropdown__list li a {
-        display: block; }
+    .dropdown__list li a {
+      display: block; }
 
 .drop__topic {
   font-weight: 600;
   font-size: 18px;
-  position: relative; }
+  position: relative;
+  padding: 7px 16px; }
   .drop__topic::after {
     content: "";
     display: inline-block;
@@ -149,22 +148,27 @@ header {
 
 .drop__chapter {
   font-weight: bold;
-  font-size: 15px; }
+  font-size: 15px;
+  padding: 7px 16px;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.02); }
 
 .drop__sub {
-  padding: 5px 20px !important;
+  padding: 5px 40px;
   font-weight: bold;
   font-size: 15px;
-  color: #464646; }
+  color: #464646;
+  box-shadow: -100px 10px 10px rgba(0, 0, 0, 0.02); }
 
 .drop__exercise {
   color: black;
   width: 100%;
-  padding: 5px 20px; }
+  padding: 11px 35px; }
+  .drop__exercise:hover:not(.current), .drop__exercise--sub:hover:not(.current) {
+    background-color: #d1d1d1; }
   .drop__exercise--sub {
     color: black;
     width: 100%;
-    padding: 5px 40px; }
+    padding: 5px 60px; }
 
 li {
   list-style: none; }
@@ -173,9 +177,13 @@ li {
   display: block; }
 
 .current {
-  background: #777; }
-  .current a {
-    color: white; }
+  background: #777;
+  color: white; }
+
+.disabled {
+  pointer-events: none;
+  cursor: default;
+  color: grey; }
 
 .viewport {
   width: 100%;
