@@ -89,6 +89,7 @@
                         <ul>
                             <li class="drop__chapter">0 - Start </li>
                             <li><a class="drop__exercise"  href="{{.Site.Home.Permalink}}">{{.Site.Home.Title}}</a></li>
+                            {{ partial "dropdown" (dict "path" .Site.Data.exercises.general "type" "general" "title" .Title)}}
                             {{ partial "dropdown" (dict "path" .Site.Data.exercises.html "type" "html" "title" .Title)}}
                         </ul>
                     </div>
@@ -128,7 +129,7 @@
     
 <!-- <script src="{{.Site.BaseURL}}/js/codeMirror.js"></script> -->
 <!-- <script src="{{.Site.BaseURL}}/js/editor.js"></script> -->
-<!-- <script src="{{.Site.BaseURL}}/js/script.js"></script> -->
+<script src="{{.Site.BaseURL}}/js/script.js"></script>
 <script src="{{.Site.BaseURL}}/js/sticky.js"></script>
 <script src="{{.Site.BaseURL}}/js/navigation.js"></script>
 </body>

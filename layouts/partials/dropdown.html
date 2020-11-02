@@ -11,9 +11,10 @@
 	{{if eq $chapter.subFolders false}}
 		{{ range $exercise:=.exercises }}
 		{{ $exercise:= lower $exercise }}
+		{{ $title := replace $exercise "-" " " }}
 			{{$adress := print "content/" $type "/" $chapter.folder "/" $exercise ".md"}}
 				{{if (fileExists $adress)}}
-					<li><a class="drop__exercise" href="/{{$type}}/{{$chapter.folder}}/{{$exercise}}/">{{$exercise}}</a></li>
+					<li><a class="drop__exercise" href="/{{$type}}/{{$chapter.folder}}/{{$exercise}}/">{{$title}}</a></li>
 				{{end}}
 			{{ end }}  
 		{{/*  When there are subfolders */}}

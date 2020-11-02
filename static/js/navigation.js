@@ -39,18 +39,13 @@ function myFunction() {
 
 	function setNavArrow(arr,index,query){
 		let arrowArr = document.querySelectorAll(query);
-		console.log(arr[index])
 		if(!arr[index]){
-			console.log(arr[index])
 			arrowArr.forEach(el=>{
 				el.classList.add("disabled");
-				console.log('add')
 			})
 		}else{
-			console.log('come')
 			arrowArr.forEach(el=>{
 				el.href = arr[index];
-				console.log('set href')
 			})
 		}
 	}

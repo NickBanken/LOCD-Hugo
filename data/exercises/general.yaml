@@ -8,10 +8,9 @@ chapters:
     subFolders: false
 
     exercises:
-      - General intro to the course
-      - How-does-internet-work
-      - How does the web work
-      - test
+      - background-of-the-web
+      - How-does-the-internet-work
+      - the-internet
 
     subChapters:
       folder:
